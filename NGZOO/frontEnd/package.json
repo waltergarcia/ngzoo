@@ -23,7 +23,7 @@
     "@tinymce/tinymce-angular": "^3.5.0",
     "@types/jquery": "^3.3.35",
     "bootstrap": "4.4.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "jquery-dotdotdot": "1.8.2",
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.5.5",
