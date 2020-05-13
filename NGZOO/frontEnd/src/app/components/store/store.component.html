@@ -1,0 +1,68 @@
+<div class="col-lg-12" [@fadeIn]>
+  <a class="active_button btn btn-success"
+    [@mark]="status" (click)="changeStatus(status)">
+    <span *ngIf="status == 'inactive'">Inactive Button</span>
+    <span *ngIf="status == 'active'">Active Button</span>
+  </a>
+
+  <hr/>
+  <h4>CSS3 Animations</h4>
+  <a class="transitions_button">Transitions</a>
+
+  <div class="clearfix"></div>
+
+  <div class="animation_box"></div>
+
+  <hr/>
+  <h4>Using JQuery in Angular 9</h4>
+  <button id="buttonJQ">Show text</button>
+  <p id="textJQ" class="hidden alert alert-warning">Enjoy most exotic animals in our zoo :)</p>
+
+  <div id="textBox" style="border:1px solid black; width:150px; height:50px;">
+    These Angular docs help you learn and use the Angular framework and development platform,
+    from your first app to optimizing complex single-page apps for enterprises.
+    Tutorials and guides include downloadable examples to accelerate your projects.
+  </div>
+
+  <hr/>
+  Parent:
+  <h1>{{title}}</h1>
+  <h2>This is an example</h2>
+  <ul>
+    <li>Black Man T-Shirt</li>
+    <li>Orange Dress</li>
+    <li>Boy shoes</li>
+  </ul>
+
+  <hr/>
+  <p>
+    Park's Name:
+    <input type="text" [(ngModel)]="parksName" (keyup)="showName()"/>
+  </p>
+  <p>
+    Result: {{parksName}}
+  </p>
+
+  <div>
+    <h4>Default name</h4>
+  </div>
+
+  <div *ngIf="myPark">
+    <h4>MyPark data from the child</h4>
+    <ol>
+      <li>{{myPark.name}}</li>
+      <li>{{myPark.m2}}</li>
+      <li>{{myPark.vegetable}}</li>
+      <li>{{myPark.open}}</li>
+    </ol>
+  </div>
+
+  <hr>
+
+  <p *ngIf="parksName">
+    Child:
+    <parks [name]="parksName"
+          [meters]="400"
+          (sendData)="showParkData($event)"></parks>
+  </p>
+</div>

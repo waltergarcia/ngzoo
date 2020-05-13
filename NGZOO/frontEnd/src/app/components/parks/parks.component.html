@@ -1,0 +1,13 @@
+<h2>{{name}}</h2>
+
+<ol>
+  <li>Meters: {{m2}}</li>
+  <li>Vegetable: {{vegetable}}</li>
+  <li>
+    <span *ngIf="open == true">Open</span>
+    <span *ngIf="open != true">Closed</span>
+  </li>
+</ol>
+
+<button (click)="submitEvent()">Show</button>
+

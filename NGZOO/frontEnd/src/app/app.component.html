@@ -1,0 +1,89 @@
+<div class="navigation col-lg-12">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/home']" class="navbar-brand">{{title}}</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">
+            <span class="fa fa-home"></span>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/animals']" [routerLinkActive]="['active']">
+            <span class="fa fa-star"></span>
+            Animals
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/keepers']" [routerLinkActive]="['active']">
+            <span class="fa fa-user"></span>
+            Keepers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/store']" [routerLinkActive]="['active']">
+            <span class="fa fa-gift"></span>
+            Store
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contact']" [routerLinkActive]="['active']">
+            <span class="fa fa-comment"></span>
+            Contact
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="!identity">
+        <li>
+          <a [routerLink]="['/register']" [routerLinkActive]="['active']">
+            <span class="fa fa-user-plus" aria-hidden="true"></span>
+            Register
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/login']" [routerLinkActive]="['active']">
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+            Login
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="identity">
+        <li class="avatar">
+          <img src="{{urlUser + '/get-profile-image/' + identity.image}}"/>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            {{identity.name + ' ' + identity.lastName}} <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+              <a [routerLink]="['/admin-panel']">
+                <i class="fa fa-tasks" aria-hidden="true"></i>
+                Admin panel
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/myInfo']">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                My info
+              </a>
+            </li>
+            <li>
+              <a class="pointer" (click)="logout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="col-lg-11">
+  <router-outlet></router-outlet>
+</div>

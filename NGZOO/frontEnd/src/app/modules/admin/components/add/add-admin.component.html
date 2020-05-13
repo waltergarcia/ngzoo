@@ -1,0 +1,43 @@
+<div class="col-lg-10">
+  <h3>{{titlePage}}</h3>
+
+  <div class="alert alert-success" *ngIf="status == 'updated'">
+    {{resultMsg}}, <a [routerLink]="['/animal', animal._id]">Show</a>
+  </div>
+  <div class="alert alert-success" *ngIf="status  == 'error'">
+    An error has occurred an updated
+  </div>
+
+
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <label>Name</label>
+      <input type="text" name="name" #name="ngModel" [(ngModel)]="animal.name" class="form-control" required />
+      <span *ngIf="!name.valid && name.touched">
+        The name is required
+      </span>
+    </p>
+    <p>
+      <label>Description</label>
+      <textarea type="text" name="description" #description="ngModel" [(ngModel)]="animal.description" class="form-control" required ></textarea>
+      <span *ngIf="!description.valid && description.touched">
+        The description is required
+      </span>
+    </p>
+    <p>
+      <label>Year</label>
+      <input type="text" name="year" #year="ngModel" [(ngModel)]="animal.year" class="form-control" required />
+      <span *ngIf="!year.valid && year.touched">
+        The year is required
+      </span>
+    </p>
+    <div *ngIf="isEdit && animal.image" class="image_for_edit">
+      <img src="{{urlAnimal + '/get-image/' + animal.image}}" />
+    </div>
+    <p>
+      <label>Upload image</label>
+      <input type="file" placeholder="Select image" (change)="fileChangeEvent($event)" />
+    </p>
+    <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!registerForm.form.valid"/>
+  </form>
+</div>

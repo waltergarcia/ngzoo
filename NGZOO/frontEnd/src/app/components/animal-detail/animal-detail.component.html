@@ -1,0 +1,15 @@
+<div class="animal-box col-lg-11" *ngIf="animal">
+  <h1>{{title}}</h1>
+
+  <div id="animal-head-card" class="col-lg-3 pull-left">
+    <img src="{{urlAnimal + '/get-image/' + animal.image}}" style="width: 300px;" />
+  </div>
+  <div class="animal-data col-lg-7 pull-left">
+    <h1>{{animal.name}}</h1>
+    <!-- <p>{{animal.user.name + ' ' + animal.user.lastName}}</p> -->
+    <p>{{animal.year}}</p>
+    <p>{{animal.description}}</p>
+  </div>
+</div>
+
+
